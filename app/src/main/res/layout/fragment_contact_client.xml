@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ContactClientFragment"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваше имя"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="24dp"/>
+
+    <EditText
+        android:id="@+id/et_enter_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="введите ваше имя"
+        android:layout_marginLeft="24dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш номер телефона"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginLeft="24dp"
+        android:paddingTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+7"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginLeft="24dp"/>
+
+
+        <EditText
+            android:id="@+id/et_number_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:hint="    введите ваш номер телефона"
+            android:textIsSelectable="true"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_contact_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:text="Принять"/>
+
+
+
+</LinearLayout>
