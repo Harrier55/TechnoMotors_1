@@ -37,9 +37,9 @@ public class SelectYearFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
         String year = (String) getListAdapter().getItem(position);
-        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
         Bundle bundle = new Bundle();
         bundle.putString("year",year);
-        navController.navigate(R.id.maintenanceFormFragment,bundle);
+//       navController.navigate(R.id.maintenanceFormFragment,bundle);
     }
 }

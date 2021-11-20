@@ -38,9 +38,9 @@ public class SelectTOFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
         String service = (String) getListAdapter().getItem(position);
-        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
         Bundle bundle = new Bundle();
         bundle.putString("service",service);
-        navController.navigate(R.id.maintenanceFormFragment,bundle);
+ //       navController.navigate(R.id.maintenanceFormFragment,bundle);
     }
 }

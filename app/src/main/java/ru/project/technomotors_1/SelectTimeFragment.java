@@ -32,11 +32,11 @@ public class SelectTimeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String time = adapterView.getItemAtPosition(position).toString();
-                NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+                NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
                 Bundle result = new Bundle();
                 result.putString("time",time);
 
-                navController.navigate(R.id.maintenanceFormFragment,result);
+       //         navController.navigate(R.id.maintenanceFormFragment,result);
 
                 //Toast.makeText(getActivity(),"выбрано время"+ time ,Toast.LENGTH_SHORT).show();
             }

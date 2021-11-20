@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 
 public class ContactClientFragment extends Fragment {
@@ -49,11 +48,11 @@ public class ContactClientFragment extends Fragment {
                     imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
                 } catch (Exception e){}
 /////////////
-                NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+                NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
                 Bundle bundle = new Bundle();
                 bundle.putString("name",name);
                 bundle.putString("number_phone",number_phone);
-                navController.navigate(R.id.maintenanceFormFragment,bundle);
+//                navController.navigate(R.id.maintenanceFormFragment,bundle);
             }
         });
 

@@ -14,7 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import ru.project.technomotors_1.data.FormTO;
 
 
 public class MaintenanceFormFragment extends Fragment implements View.OnClickListener{
@@ -109,15 +110,15 @@ public class MaintenanceFormFragment extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
-        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
         switch (view.getId()){
-            case R.id.tv_select_model: navController.navigate(R.id.select_model_list);break;
-            case R.id.tv_select_year: navController.navigate(R.id.select_year_list);break;
-            case R.id.tv_select_service: navController.navigate(R.id.select_TO_list);break;
-            case R.id.tv_select_date: navController.navigate(R.id.select_data);break;
-            case R.id.tv_select_time: navController.navigate(R.id.select_time);break;
-            case R.id.tv_select_number_phone: navController.navigate(R.id.select_contact_client);break;
-            case R.id.button_send_form_TO:sendFormTO();break;
+//            case R.id.tv_select_model: navController.navigate(R.id.select_model_list);break;
+//            case R.id.tv_select_year: navController.navigate(R.id.select_year_list);break;
+//            case R.id.tv_select_service: navController.navigate(R.id.select_TO_list);break;
+//            case R.id.tv_select_date: navController.navigate(R.id.select_data);break;
+//            case R.id.tv_select_time: navController.navigate(R.id.select_time);break;
+//            case R.id.tv_select_number_phone: navController.navigate(R.id.select_contact_client);break;
+//            case R.id.button_send_form_TO:sendFormTO();break;
             //case R.id.tv_select_name: navController.navigate(R.id.contactClientFragment);break;
 
         }
@@ -125,13 +126,13 @@ public class MaintenanceFormFragment extends Fragment implements View.OnClickLis
 
     void sendFormTO(){
         FormTO formTO = new FormTO();
-        formTO.model = model;
-        formTO.year = year;
-        formTO.service = service;
-        formTO.date = date;
-        formTO.time = time;
-        formTO.name = name;
-        formTO.number_phone = number_phone;
+//        formTO.model = model;
+//        formTO.year = year;
+//        formTO.service = service;
+//        formTO.date = date;
+//        formTO.time = time;
+//        formTO.name = name;
+//        formTO.number_phone = number_phone;
 
         sendForm.sendFormTO(formTO);
 
@@ -139,32 +140,6 @@ public class MaintenanceFormFragment extends Fragment implements View.OnClickLis
 
 
 
-// код для Alert Dialog. Пробовал так выбирать номер телефона. сейчас не активен
-//    public String onCallPhoneNumber(){
-//       Toast.makeText(getActivity(),"Вызван метод onCallPhoneNumber" , Toast.LENGTH_SHORT).show();
-//       AlertDialog.Builder alert_dialog_enter_phone = new AlertDialog.Builder(getContext());
-//
-//                alert_dialog_enter_phone.setTitle("Title");
-//                alert_dialog_enter_phone.setMessage("Massage");
-//
-//
-//                // Set an EditText view to get user input
-//                final EditText input = new EditText(getContext());
-//
-//                alert_dialog_enter_phone.setView(input);
-//                input.setInputType(InputType.TYPE_CLASS_PHONE);
-//                input.setMaxLines(7);
-//
-//                alert_dialog_enter_phone.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        String v_phone_number = input.getText().toString();
-//                        if(v_phone_number != null){phone_number = v_phone_number;}
-//                        ///Toast.makeText(getActivity(),"введено значение"+ phone_number , Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                alert_dialog_enter_phone.show();
-//                return phone_number;
-//   }
+
 
 }

@@ -1,6 +1,5 @@
 package ru.project.technomotors_1;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class SelectModelFragment extends ListFragment   {
 
@@ -43,10 +41,10 @@ public class SelectModelFragment extends ListFragment   {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         String model = (String) getListAdapter().getItem(position);
-        NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
         Bundle bundle = new Bundle();
         bundle.putString("model",model);
-        navController.navigate(R.id.maintenanceFormFragment,bundle);
+   //     navController.navigate(R.id.maintenanceFormFragment,bundle);
     }
 
 

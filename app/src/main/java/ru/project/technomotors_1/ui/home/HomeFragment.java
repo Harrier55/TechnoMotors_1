@@ -10,8 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -44,8 +42,8 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(),"text_home",Toast.LENGTH_SHORT).show();
                 Bundle result = new Bundle();
                 result.putString("bundleKey", "result");
-                NavController navController = Navigation.findNavController(getActivity(),R.id.nav_host_fragment);
-                navController.navigate(R.id.maintenanceFormFragment,result);
+                NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
+      //          navController.navigate(R.id.maintenanceFormFragment,result);
                 //getParentFragmentManager().setFragmentResult("requestKey", result);
             }
         });
