@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -32,6 +33,8 @@ import ru.project.technomotors_1.ui.service.ServiceFragment;
 
 
 public class HomeActivity extends AppCompatActivity implements FragmentItemMenuListener, SendForm {
+
+    private static final int SERVICE_ITEM_1 = 30;
     
     public static final String TAG = "@@@";
 
@@ -91,6 +94,14 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         setTitle(title);
     }
 
+    void launcherFragmentWithAddToBackStack(Fragment fragment,int title){
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+        setTitle(title);
+    }
+
     public void initFAB() {
         fabAction = findViewById(R.id.fab_action);
         fab_tel_1 = findViewById(R.id.fab_telefon_1);
@@ -118,10 +129,11 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
     public void onOpenFragment(int value) {
         Toast.makeText(this, "Интерфейс onOpenFragment в Активити получил пункт меню _"
                 + value, Toast.LENGTH_SHORT).show();
-        NavController navController = Navigation.findNavController(this, R.id.fragment_container);
+//        NavController navController = Navigation.findNavController(this, R.id.fragment_container);
 
         switch (value) {
             case 30:
+                launcherFragmentWithAddToBackStack(new MaintenanceFormFragment(),R.string.title_maintenanceFormFragment);
 //                navController.navigate(R.id.maintenanceFormFragment);
                 break;
         }
@@ -139,33 +151,26 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressLint("NonConstantResourceId")
+
     @Override
     public void onBackPressed() {
-
-//       int count = getSupportFragmentManager().getBackStackEntryCount();
-        NavController navController = Navigation.findNavController(this, R.id.fragment_container);
-        int current_id_fragment = Objects.requireNonNull(navController.getCurrentDestination()).getId();
-
-//  Реализация желаемой обратной навигации BackStack
-
-        switch (current_id_fragment) {
-//            case R.id.select_contact_client:
-//            case R.id.select_model_list:
-//            case R.id.select_year_list:
-//            case R.id.select_TO_list:
-//            case R.id.select_data:
-//            case R.id.select_time:
-//            case R.id.textView:
-//                navController.navigate(R.id.maintenanceFormFragment);
-//                break;
-//            case R.id.maintenanceFormFragment:
-//                navController.navigate(R.id.navigation_service);
-//                break;
+        if (fragmentManager.getBackStackEntryCount() != 0) {
+            fragmentManager.popBackStack(null,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        } else {
+            showClosingDialog();
+//            super.onBackPressed();
         }
+    }
 
-//        super.onBackPressed();   //  метод специально закомментировал, с ним не всегда корректно работает
+    public void showClosingDialog(){
+        new AlertDialog.Builder(this)
 
+                .setPositiveButton("Ухожу", (dialogInterface, i) -> {
+                    Toast.makeText(this, "Пока...пока", Toast.LENGTH_SHORT).show();
+                    finish();
+                })
+                .setNegativeButton("Остаюсь",null)
+                .show();
     }
 
 
