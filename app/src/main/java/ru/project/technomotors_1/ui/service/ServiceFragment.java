@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.ListFragment;
 
-import ru.project.technomotors_1.CustomAdapter;
-import ru.project.technomotors_1.FragmentItemMenuListener;
+import ru.project.technomotors_1.ui.CustomAdapter;
+import ru.project.technomotors_1.ui.FragmentItemMenuListener;
 import ru.project.technomotors_1.R;
 
 public class ServiceFragment extends ListFragment {

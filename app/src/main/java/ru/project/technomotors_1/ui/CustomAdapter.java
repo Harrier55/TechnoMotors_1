@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.ui;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ru.project.technomotors_1.R;
 
 
 public class CustomAdapter extends BaseAdapter {

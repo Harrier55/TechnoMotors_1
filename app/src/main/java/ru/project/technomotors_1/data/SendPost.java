@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.data;
 
 import android.util.Log;
 import android.widget.Toast;

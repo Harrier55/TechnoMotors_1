@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.ui;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+
+import ru.project.technomotors_1.R;
 
 
 public class SelectTimeFragment extends Fragment {
@@ -32,11 +34,13 @@ public class SelectTimeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 String time = adapterView.getItemAtPosition(position).toString();
-                NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
-                Bundle result = new Bundle();
-                result.putString("time",time);
 
-       //         navController.navigate(R.id.maintenanceFormFragment,result);
+                Bundle bundle = new Bundle();
+                bundle.putString("time",time);
+                getParentFragmentManager().setFragmentResult("requestKey",bundle);
+                getParentFragmentManager().popBackStack();
+
+
 
                 //Toast.makeText(getActivity(),"выбрано время"+ time ,Toast.LENGTH_SHORT).show();
             }

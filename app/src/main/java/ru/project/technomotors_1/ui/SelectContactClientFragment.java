@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.ui;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,8 +15,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import ru.project.technomotors_1.R;
 
-public class ContactClientFragment extends Fragment {
+
+public class SelectContactClientFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,12 +49,13 @@ public class ContactClientFragment extends Fragment {
                 try {
                     imm.hideSoftInputFromWindow(activity.getCurrentFocus().getWindowToken(), 0);
                 } catch (Exception e){}
-/////////////
-                NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
+
+
                 Bundle bundle = new Bundle();
                 bundle.putString("name",name);
                 bundle.putString("number_phone",number_phone);
-//                navController.navigate(R.id.maintenanceFormFragment,bundle);
+                getParentFragmentManager().setFragmentResult("requestKey",bundle);
+                getParentFragmentManager().popBackStack();
             }
         });
 

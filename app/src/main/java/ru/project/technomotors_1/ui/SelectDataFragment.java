@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.ui;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.widget.CalendarView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+
+import ru.project.technomotors_1.R;
 
 
 public class SelectDataFragment extends Fragment {
@@ -56,10 +58,12 @@ public class SelectDataFragment extends Fragment {
                     "  " + year +
                     " года";
            //Toast.makeText(getActivity(),"Нажата кнопка" + selectedDate , Toast.LENGTH_SHORT).show();
-            NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
+
             Bundle bundle = new Bundle();
             bundle.putString("date",selectedDate);
-    //        navController.navigate(R.id.maintenanceFormFragment,bundle);
+            getParentFragmentManager().setFragmentResult("requestKey",bundle);
+            getParentFragmentManager().popBackStack();
+
         });
 
         return root;

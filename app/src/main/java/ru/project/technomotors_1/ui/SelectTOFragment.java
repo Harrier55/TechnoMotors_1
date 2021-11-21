@@ -1,4 +1,4 @@
-package ru.project.technomotors_1;
+package ru.project.technomotors_1.ui;
 
 import android.os.Bundle;
 
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import ru.project.technomotors_1.R;
 
 public class SelectTOFragment extends ListFragment {
 
@@ -38,9 +40,11 @@ public class SelectTOFragment extends ListFragment {
         super.onListItemClick(l, v, position, id);
 
         String service = (String) getListAdapter().getItem(position);
-        NavController navController = Navigation.findNavController(getActivity(),R.id.fragment_container);
+
         Bundle bundle = new Bundle();
         bundle.putString("service",service);
- //       navController.navigate(R.id.maintenanceFormFragment,bundle);
+        getParentFragmentManager().setFragmentResult("requestKey",bundle);
+        getParentFragmentManager().popBackStack();
+
     }
 }

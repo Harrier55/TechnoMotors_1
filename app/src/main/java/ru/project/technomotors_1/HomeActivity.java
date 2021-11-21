@@ -1,8 +1,6 @@
 package ru.project.technomotors_1;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -17,13 +15,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
-import java.util.Objects;
-import java.util.logging.LogManager;
 
 import ru.project.technomotors_1.data.FormTO;
+import ru.project.technomotors_1.data.SendForm;
+import ru.project.technomotors_1.data.SendPost;
+import ru.project.technomotors_1.ui.FragmentItemMenuListener;
+import ru.project.technomotors_1.ui.MaintenanceFormFragment;
 import ru.project.technomotors_1.ui.car.CarFragment;
 import ru.project.technomotors_1.ui.home.HomeFragment;
 import ru.project.technomotors_1.ui.service.ServiceFragment;
@@ -182,7 +179,7 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         Gson gson = new GsonBuilder().create();
         String jsonFormTO = gson.toJson(formTO);
         SendPost sendPost = new SendPost();
-        sendPost.sendForm(url, jsonFormTO);
+//        sendPost.sendForm(url, jsonFormTO);
 //        Toast.makeText(this,"Нажата кнопка Send" + jsonFormTO,Toast.LENGTH_SHORT).show();
     }
 
