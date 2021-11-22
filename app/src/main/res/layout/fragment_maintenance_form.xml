@@ -17,7 +17,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
-        android:hint="Выбор модели автомобиля"
+        android:hint="Выбрать модель автомобиля"
         android:textSize="16sp"
         android:textColor="@color/black"
          />
@@ -29,7 +29,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:clickable="true"
-        android:hint="Год покупки автомобиля"
+        android:hint="Выбрать год покупки автомобиля"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:focusable="true" />
@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:text="Контактные данные"
         android:gravity="center"
-        android:background="@color/appBar"
+        android:background="@color/gray_400"
         android:layout_marginTop="18dp"
         android:textColor="@color/black"
         />

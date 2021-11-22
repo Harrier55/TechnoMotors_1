@@ -17,7 +17,7 @@
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/appBar"
+        android:backgroundTint="@color/gray_400"
         android:layout_gravity="bottom">
 
 

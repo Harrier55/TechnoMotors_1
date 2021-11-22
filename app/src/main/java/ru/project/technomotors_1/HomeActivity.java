@@ -1,6 +1,7 @@
 package ru.project.technomotors_1;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -56,10 +58,10 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         initFAB();
         initBottomNavigation();
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
-
-
-
 
     private void initBottomNavigation() {
         bottomNavigationView.setBackground(null);
@@ -82,7 +84,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         });
 
     }
-
 
     public void launchFragmentFromBottomNavigation(Fragment fragment, int title) {
         fragmentManager.beginTransaction()
@@ -117,8 +118,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
                 }
             }
         });
-
-
     }
 
     // Интерфейс меню выбора в главных фрагментах
@@ -126,7 +125,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
     public void onOpenFragment(int value) {
         Toast.makeText(this, "Интерфейс onOpenFragment в Активити получил пункт меню _"
                 + value, Toast.LENGTH_SHORT).show();
-//        NavController navController = Navigation.findNavController(this, R.id.fragment_container);
 
         switch (value) {
             case 30:
@@ -134,8 +132,14 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
 //                navController.navigate(R.id.maintenanceFormFragment);
                 break;
         }
-
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.action_bar_menu,menu);
+//        return super.onCreateOptionsMenu(menu);
+//
+//    }
 
     //  реализация стрелки BackStack
     @Override
@@ -147,7 +151,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     @Override
     public void onBackPressed() {
@@ -161,7 +164,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
 
     public void showClosingDialog(){
         new AlertDialog.Builder(this)
-
                 .setPositiveButton("Ухожу", (dialogInterface, i) -> {
                     Toast.makeText(this, "Пока...пока", Toast.LENGTH_SHORT).show();
                     finish();
@@ -169,7 +171,6 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
                 .setNegativeButton("Остаюсь",null)
                 .show();
     }
-
 
     @Override
     public void sendFormTO(FormTO formTO) {
@@ -180,8 +181,7 @@ public class HomeActivity extends AppCompatActivity implements FragmentItemMenuL
         String jsonFormTO = gson.toJson(formTO);
         SendPost sendPost = new SendPost();
 //        sendPost.sendForm(url, jsonFormTO);
-//        Toast.makeText(this,"Нажата кнопка Send" + jsonFormTO,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Нажата кнопка Send" + jsonFormTO,Toast.LENGTH_SHORT).show();
     }
-
 
 }
